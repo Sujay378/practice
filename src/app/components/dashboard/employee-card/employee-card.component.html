@@ -1,0 +1,19 @@
+<div class="card">
+  <img src="..." class="card-img-top" alt="..." />
+  <div class="card-body card-table">
+    <div>
+      <h5 class="card-title">{{ employee?.name }}</h5>
+      <p class="card-text">{{ employee?.id }}</p>
+      <p class="card-text">{{ employee?.age }}</p>
+      <p class="card-text">{{ employee?.bloodGroup }}</p>
+    </div>
+    <div class="button-container">
+      <button mat-icon-button color="primary" (click)="deleteMe()">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" (click)="editMe()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

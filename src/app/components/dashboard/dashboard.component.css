@@ -8,16 +8,27 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
+  height: 15%;
 }
 
 .employees {
   padding: 20px;
+  height: 85%;
+}
+
+.scroll-container {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .custom-wrapper {
-  width: 30%;
+  width: calc(100%/3);
   padding: 10px;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

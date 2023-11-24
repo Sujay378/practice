@@ -1,20 +1,22 @@
 <app-navbar></app-navbar>
 <div class="container mt-4 outline">
-  <div class="header mb-3">
+  <div class="header">
     <h2 class="title">List of employees here</h2>
     <div class="add">
-      <button mat-fab color="primary">
+      <button mat-fab color="primary" (click)="addEmployee()">
         <mat-icon>add</mat-icon>
       </button>
     </div>
   </div>
 
   <div class="employees">
-    <div class="custom-wrapper" *ngFor="let employee of employees">
-      <app-employee-card
-        [employee]="employee"
-        (dleteEmployee)="dleteAnEmployee(employee)"
-      ></app-employee-card>
+    <div class="scroll-container">
+      <div class="custom-wrapper" *ngFor="let employee of employees">
+        <app-employee-card
+          [employeeDetails]="employee"
+          (dleteEmployee)="dleteAnEmployee($event)"
+        ></app-employee-card>
+      </div>
     </div>
   </div>
 </div>

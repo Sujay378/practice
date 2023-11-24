@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Employee } from 'src/app/shared/models/employee.model';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -34,9 +35,15 @@ export class DashboardComponent {
     },
   ];
 
+  constructor(private _modalservice: ModalService) {}
+
   dleteAnEmployee(employee: Employee) {
     this.employees = this.employees.filter(
       (value) => value.name !== employee.name
     );
+  }
+
+  addEmployee() {
+    this._modalservice.open();
   }
 }

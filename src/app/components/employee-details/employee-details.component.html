@@ -1,2 +1,26 @@
-<app-navbar></app-navbar>
-<p>employee-details works!</p>
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Employee Ddetails</mat-card-title>
+    </mat-card-header>
+    <div class="details-container">
+      <div class="image-container">
+        <img src="" alt="Employee Image" class="employee-image" />
+      </div>
+      <div class="details-table">
+        <table>
+          <tr *ngFor="let key of keys">
+            <td class="detail-key">{{ key }}</td>
+            <td>:</td>
+            <td class="detail-value">{{ employee[key] }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <mat-card-actions [align]="'end'">
+      <button mat-raised-button color="primary" (click)="backToDashboard()">
+        Bcak to Dashboard
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -16,7 +16,12 @@ import { SharedModule } from './shared/shared.module';
     EmployeeDetailsComponent,
     EmployeeCardComponent,
   ],
-  imports: [BrowserModule, BrowserAnimationsModule, SharedModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    SharedModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

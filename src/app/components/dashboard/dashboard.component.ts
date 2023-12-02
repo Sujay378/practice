@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/shared/models/employee.model';
+import { EmployeeService } from 'src/app/shared/services/employee.service';
 import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
@@ -7,40 +8,22 @@ import { ModalService } from 'src/app/shared/services/modal.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
-export class DashboardComponent {
-  employees: Employee[] = [
-    {
-      name: 'Arghya Saha',
-      age: 23,
-      id: '10727126',
-      bloodGroup: 'A+',
-    },
-    {
-      name: 'Arghya Saha2',
-      age: 23,
-      id: '10727126',
-      bloodGroup: 'A+',
-    },
-    {
-      name: 'Arghya Saha3',
-      age: 23,
-      id: '10727126',
-      bloodGroup: 'A+',
-    },
-    {
-      name: 'Arghya Saha4',
-      age: 23,
-      id: '10727126',
-      bloodGroup: 'A+',
-    },
-  ];
+export class DashboardComponent implements OnInit {
+  employees: Employee[] = [];
 
-  constructor(private _modalservice: ModalService) {}
+  constructor(
+    private _modalservice: ModalService,
+    private _emplyeeService: EmployeeService
+  ) {}
+
+  ngOnInit(): void {
+    this._emplyeeService.fetchEmployees().subscribe((employeeSlice) => {
+      this.employees = employeeSlice;
+    });
+  }
 
   dleteAnEmployee(employee: Employee) {
-    this.employees = this.employees.filter(
-      (value) => value.name !== employee.name
-    );
+    this._emplyeeService.deleteEmployee(employee.id);
   }
 
   addEmployee() {
